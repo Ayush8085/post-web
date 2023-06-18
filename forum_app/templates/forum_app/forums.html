@@ -1,0 +1,46 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<h1>Forums</h1>
+
+<a href="{% url 'create-post' %}">Create post</a><br>
+<hr>
+
+{% for post in posts %}
+<div class="card rounded-4">
+  <h5 class="card-header">{{post.user.username}}</h5>
+  <div class="card-body">
+    <h5 class="card-title">{{post.title}}</h5>
+    <p class="card-text">{{post.description}}</p>
+
+    <a href="{% url 'post' post.id %}" class="btn btn-outline-secondary p-1">View more</a>
+  </div>
+  <div class="card-footer">
+
+    <i id="{{post.id}}-like-dislike" class="fa fa-heart"></i> |
+
+    <span>Created: {{post.created|timesince}} ago</span>
+  </div>
+</div><br>
+{% endfor %}
+
+<script>
+
+  icons = document.querySelectorAll('.fa')
+
+  icons.forEach(icon => {
+    icon.addEventListener("click", () => {
+      if(icon.style.color === "red") {
+        icon.style.color = "black";
+      }
+      else {
+        icon.style.color = "red";
+      }
+    })
+  });
+
+
+</script>
+
+{% endblock content %}
