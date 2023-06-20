@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.forums, name='forums'),
     path('create-post/', views.createPost, name='create-post'),
     path('post/<str:pk>/', views.post, name='post'),
+    path('like-post/<str:pk>/', views.likePost, name='like-post'),
 ]

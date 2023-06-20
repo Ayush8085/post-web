@@ -3,6 +3,18 @@ from django.contrib.auth.decorators import login_required
 from .models import Post, Comment
 from .forms import PostForm
 
+@login_required
+def likePost(request, pk):
+
+    post = Post.objects.get(id=pk)
+
+    if request.method == 'POST':
+        post.likes.add(request.user)
+        return redirect('forums')
+
+    context = {}
+    return render(request, 'forum_app/forums.html', context)
+
 def forums(request):
     posts = Post.objects.all()
 

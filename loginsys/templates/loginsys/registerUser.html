@@ -5,25 +5,25 @@
 <h1>Sign Up</h1>
 
 <form method="POST" action="">
-    {% csrf_token %}
+  {% csrf_token %}
 
-    <div class="mb-3">
-      {{form.as_p}}
-    </div>
+  <div class="mb-3">
+    {{form.as_p}}
+  </div>
 
-    <button type="submit" class="btn btn-outline-primary">Sign Up</button>
-    <a href="{% url 'home' %}" class="btn btn-outline-secondary">Go Back</a>
+  <button type="submit" class="btn btn-outline-primary">Sign Up</button>
+  <a href="{% url 'home' %}" class="btn btn-outline-secondary">Go Back</a>
 </form><br>
 
 <span>Already Signed Up?</span>
 <a href="{% url 'login' %}" class="btn btn-outline-secondary">Login</a>
 
-  {% if form.errors %}
-    {% for field in form %}
-        {% for error in field.errors %}
-            {{error}}
-        {% endfor %}
-    {% endfor %}
-  {% endif %}
+{% if form.errors %}
+{% for field in form %}
+{% for error in field.errors %}
+{{error}}
+{% endfor %}
+{% endfor %}
+{% endif %}
 
 {% endblock content %}

@@ -2,9 +2,26 @@
 
 {% block content %}
 
-<h1>Forums</h1>
+<style>
+  #like-form {
+    display: flex;
+    flex: 1;
+  }
 
-<a href="{% url 'create-post' %}">Create post</a><br>
+  .card-footer {
+    display: flex;
+  }
+
+  .create-post {
+    text-decoration: none;
+    background-color: #3F51B5;
+    color: azure;
+  }
+</style>
+
+<h1 class="text-center text-decoration-underline fw-bold" style="color: #0D47A1;">Forums</h1>
+
+<a href="{% url 'create-post' %}" class="rounded-pill p-2 m-2 create-post">Create post</a><br>
 <hr>
 
 {% for post in posts %}
@@ -18,12 +35,23 @@
   </div>
   <div class="card-footer">
 
-    <i id="{{post.id}}-like-dislike" class="fa fa-heart"></i> |
+    <div id="like-form">
+      <form method="POST" action="{% url 'like-post' post.id %}">
+        {% csrf_token %}
+        <button type="submit" name="like-post" style="border: none;">
+          <i id="{{post.id}}-like-dislike" class="fa fa-heart"></i> ({{post.likes.count}})
+        </button>
+      </form>
+    </div>
 
-    <span>Created: {{post.created|timesince}} ago</span>
+    <div>Created: {{post.created|timesince}} ago</div>
   </div>
 </div><br>
 {% endfor %}
+
+<!-- --------------JS--------------- -->
+
+
 
 <script>
 
@@ -31,8 +59,8 @@
 
   icons.forEach(icon => {
     icon.addEventListener("click", () => {
-      if(icon.style.color === "red") {
-        icon.style.color = "black";
+      if (icon.style.color === "red") {
+        icon.style.color = "grey";
       }
       else {
         icon.style.color = "red";

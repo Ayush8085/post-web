@@ -3,12 +3,18 @@ from django.contrib.auth import authenticate, login
 from .forms import RegisterForm
 from django.http import HttpResponse
 
+from forum_app.models import Post, Comment
+
 from django.core.mail import send_mail
 from django.conf import settings
 
 
 def home(request):
-    return render(request, 'index.html')
+    posts = Post.objects.all()
+    comments = Comment.objects.all()
+    
+    context = {'posts': posts, 'comments': comments}
+    return render(request, 'index.html', context)
 
 def loginUser(request):
 
