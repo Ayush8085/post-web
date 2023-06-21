@@ -4,19 +4,23 @@
 
 *Run all the commands in terminal/shell
 
-**Make a virtual environment**
+**1. Make a virtual environment**
 > virtualenv venv
 
-**Activate the venv**
+**2. Activate the venv**
 > venv\Scripts\activate
 
-**Installing the requirements.txt**
+**3. Installing the requirements.txt**
 > pip install -r requirements.txt
- 
-**Run project command**
-> python manage.py runserver
 
-* A django web app with **CRUD** functionality.
+**4. Go to project directory post_web, open settings.py file. At bottom where email configuration is, Replace:**
+
+'os.environ.get('EMAIL_HOST_USER')' with your email
+
+'os.environ.get('EMAIL_HOST_PASS')' with your email password
+ 
+**5. Run project command**
+> python manage.py runserver
 
 ## Login Page
 
