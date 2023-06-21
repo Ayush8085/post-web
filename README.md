@@ -1,6 +1,8 @@
-﻿# post-web
+﻿# Post Web
 
 ## How to run
+
+*Run all the commands in terminal/shell
 
 **Make a virtual environment**
 > virtualenv venv
@@ -11,14 +13,18 @@
 **Installing the requirements.txt**
 > pip install -r requirements.txt
  
-**Run command in shell/teminal to run the project**
+**Run project command**
 > python manage.py runserver
 
 * A django web app with **CRUD** functionality.
 
-## Home Page
+## Login Page
 
-<img src="screenshots/home.png" />
+<img src="screenshots/login.png" />
+
+## Register Page
+
+<img src="screenshots/register.png" />
 
 ## Forums Page
 
