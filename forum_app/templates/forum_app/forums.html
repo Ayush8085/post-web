@@ -26,7 +26,7 @@
 
 {% for post in posts %}
 <div class="card rounded-4">
-  <h5 class="card-header">{{post.user.username}}</h5>
+  <h5 class="card-header">Creater: @{{post.user.username}}</h5>
   <div class="card-body">
     <h5 class="card-title">{{post.title}}</h5>
     <p class="card-text">{{post.description}}</p>

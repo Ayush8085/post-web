@@ -11,7 +11,7 @@ class Post(models.Model):
     likes = models.ManyToManyField(User, related_name='blog_post')
 
     # Random no for testing purpose
-    rand_num = models.IntegerField(default=random.randint(0, 100), null=True, blank=True)
+    rand_num = models.IntegerField(null=True, blank=True)
 
     created = models.DateTimeField(auto_now_add=True)
 
