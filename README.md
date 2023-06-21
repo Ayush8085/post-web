@@ -30,6 +30,10 @@
 
 <img src="screenshots/register.png" />
 
+## Home Page
+
+<img src="screenshots/home.png" />
+
 ## Forums Page
 
 <img src="screenshots/forums.png" />
